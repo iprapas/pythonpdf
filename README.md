@@ -27,4 +27,8 @@ Input in the *input/* folder
 Results can be found in *output/* folder  
 
 ## And now PLAY
-You can easily modify the code in *src/stamp.py*, make your own pdf stamps and stamp your pdfs!
+You can easily modify the code in *src/stamp.py*, make your own pdf stamps and stamp your pdfs!  
+
+## Problems merging pages with PyPDF2
+- The metadata are not passed from the original pdf to the stamped one.
+- Bookmarks are not kept either.
