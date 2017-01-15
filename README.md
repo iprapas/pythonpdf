@@ -1,17 +1,17 @@
 # pythonpdf
 
-My experience with stamping pdfs using python library pypdf2
+My experience with stamping pdfs using python library [PyPDF2][1]
 
 ## Requirements
 
-python 2.7
-pypdf2
-qrcode
+python 2.7  
+PyPDF2  
+qrcode  (to run example)
 
-Just do:
+
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
-
+[1]: https://pypi.python.org/pypi/PyPDF2 
 
