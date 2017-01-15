@@ -1,17 +1,39 @@
 # pythonpdf
 
-My experience with stamping pdfs using python library [PyPDF2][1]
+Stamping pdf files, using python libraries [PyPDF2][1] and [reportlab][2]
 
 ## Requirements
 
+### Install stuff
 python 2.7  
 PyPDF2  
-qrcode  (to run example)
+qrcode  (to run example)  
 
 
 ```
 pip install -r requirements.txt
 ```
 
-[1]: https://pypi.python.org/pypi/PyPDF2 
+[1]: https://pythonhosted.org/PyPDF2/
+[2]: http://www.reportlab.com/
 
+### Create necessary directories
+```
+mkdir temp
+mkdir output
+```
+
+## Run script
+```
+cd src
+python stamp.py
+```
+
+## Results
+Input in the *input/* folder  
+Results can be found in *output/* folder  
+
+## Play 
+You can easily modify the code in *src/stamp.py* and make custom stamps  
+
+Feel free to contact me for any inquiries.
