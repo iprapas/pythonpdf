@@ -1,10 +1,7 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import qrcode
-import os
-import atexit
 
 redirect = "https://yapra.github.io"
-
 
 def create_qr_code(data, output_path):
     qrcode.make(data, border=0).save(output_path)
@@ -22,7 +19,7 @@ def create_pdf_stamp(output_path, add_frame=False):
     normal_style.fontName = 'Helvetica'
     normal_style.textColor = Color(0,0,0)
 
-    qr_img_path = "../temp/qr.png"
+    qr_img_path = "../temp/tmp_qr.png"
     create_qr_code(redirect, qr_img_path)
     story1 = [Image(qr_img_path, width=22, height=22)]
     s = "Chick en, chi ck" \
@@ -41,8 +38,7 @@ def create_pdf_stamp(output_path, add_frame=False):
     f1.addFromList(story1, c)
     f2.addFromList(story2, c)
     c.save()
-    #qr image not needed anymore. delete it at exit
-    atexit.register(os.remove, qr_img_path)
+
 
 
 def stamp_pdf(input_path, stamp_path, output_path, add_frame=False):
@@ -62,11 +58,10 @@ def stamp_pdf(input_path, stamp_path, output_path, add_frame=False):
 
 
 def main():
-    stamp_pdf('../input/input1.pdf', '../input/stamp.pdf', '../output/stamped1.pdf')
-    stamp_pdf('../input/input1.pdf', '../input/stamp.pdf', '../output/stamped1_with_frame.pdf', add_frame=True)
-    stamp_pdf('../input/input2.pdf', '../input/stamp.pdf', '../output/stamped2.pdf')
-    stamp_pdf('../input/input2.pdf', '../input/stamp.pdf', '../output/stamped2_with_frame.pdf', add_frame=True)
-    pass
+    stamp_pdf('../input/input1.pdf', '../temp/tmp_stamp.pdf', '../output/stamped1.pdf')
+    stamp_pdf('../input/input1.pdf', '../temp/tmp_stamp.pdf', '../output/stamped1_with_frame.pdf', add_frame=True)
+    stamp_pdf('../input/input2.pdf', '../temp/tmp_stamp.pdf', '../output/stamped2.pdf')
+    stamp_pdf('../input/input2.pdf', '../temp/tmp_stamp.pdf', '../output/stamped2_with_frame.pdf', add_frame=True)
 
 
 if __name__ == "__main__":
